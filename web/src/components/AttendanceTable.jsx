@@ -69,7 +69,7 @@ export default function AttendanceTable({ data, groupName }) {
       )}
 
       {successfulData.length > 0 ? (
-        <div className="overflow-x-auto -mx-2 sm:mx-0">
+        <div className="overflow-x-auto">
           <table className="w-full min-w-[600px]">
             <thead className="glass">
               <tr>
@@ -92,14 +92,6 @@ export default function AttendanceTable({ data, groupName }) {
                     </div>
                   )}
                 </th>
-                {/* <th className="px-2 sm:px-6 py-2 sm:py-4 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
-                  <div>Day Before</div>
-                  {successfulData[0]?.data?.dayBeforeDate && (
-                    <div className="text-xs font-normal normal-case text-white/50 hidden sm:block">
-                      {successfulData[0].data.dayBeforeDate}
-                    </div>
-                  )}
-                </th> */}
                 <th className="px-2 sm:px-6 py-2 sm:py-4 text-left text-xs font-medium text-white/70 uppercase tracking-wider">
                   Total %
                 </th>
@@ -154,17 +146,6 @@ export default function AttendanceTable({ data, groupName }) {
                       </span>
                     </button>
                   </td>
-                  {/* <td className="px-2 sm:px-6 py-2 sm:py-4">
-                    <button
-                      onClick={() => openModal(item.data, 'dayBefore', item.data.dayBeforeDate)}
-                      className="flex items-center space-x-1 sm:space-x-2 glass-hover p-1 sm:p-2 rounded-xl transition-colors"
-                    >
-                      <Calendar className="h-3 w-3 sm:h-4 sm:w-4 text-green-400" />
-                      <span className="font-bold text-white text-xs sm:text-sm">
-                        {item.data.dayBefore || '0/0'}
-                      </span>
-                    </button>
-                  </td> */}
                   <td className="px-2 sm:px-6 py-2 sm:py-4">
                     <button
                       onClick={() => openModal(item.data, 'total')}
