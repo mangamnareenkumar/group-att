@@ -16,7 +16,7 @@ export default function Layout({ children }) {
                 <h1 className="text-lg sm:text-xl font-bold gradient-text">
                   ✨ Group Attendance
                 </h1>
-                <p className="text-xs sm:text-sm text-white/70 hidden sm:block">User: {userStorage.getCurrentUser().slice(-8)}</p>
+                <p className="text-xs sm:text-sm text-white/70">User: {userStorage.getCurrentUser().slice(-8)}</p>
               </div>
             </div>
             
