@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen;
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20;
+  }
+  
+  .glass-hover {
+    @apply hover:bg-white/20 transition-all duration-300;
+  }
+  
+  .gradient-btn {
+    @apply bg-gradient-to-r from-green-500 via-teal-500 to-green-300 hover:from-green-600 hover:via-teal-600 hover:to-green-400 text-white font-medium transition-all duration-300;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-green-400 via-teal-400 to-green-300 bg-clip-text text-transparent;
+  }
+}
