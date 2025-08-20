@@ -4,7 +4,7 @@ import { userStorage } from '../utils/userStorage';
 
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen text-white" style={{fontFamily: 'Inter, sans-serif'}}>
+    <div className="min-h-screen text-white flex flex-col" style={{fontFamily: 'Inter, sans-serif'}}>
       <nav className="glass rounded-2xl m-2 sm:m-4 mb-4 sm:mb-8">
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
           <div className="flex justify-between items-center h-14 sm:h-16">
@@ -32,9 +32,22 @@ export default function Layout({ children }) {
         </div>
       </nav>
       
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {children}
       </main>
+      
+      <footer className="mt-auto py-6 border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-white/70 text-sm">
+              Made with ❤️ by <span className="gradient-text font-semibold">Ofzen</span>
+            </p>
+            <p className="text-white/50 text-xs mt-1">
+              © 2025 Ofzen. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

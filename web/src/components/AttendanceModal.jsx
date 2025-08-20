@@ -10,11 +10,11 @@ export default function AttendanceModal({ isOpen, onClose, studentData, type, da
     if (type === 'total') {
       return studentData.totalBreakdown || [];
     } else if (type === 'today') {
-      return studentData.todaySubjects || [];
+      return studentData.todaySubjects || studentData.todayBreakdown || [];
     } else if (type === 'yesterday') {
-      return studentData.yesterdaySubjects || [];
+      return studentData.yesterdaySubjects || studentData.yesterdayBreakdown || [];
     } else if (type === 'dayBefore') {
-      return studentData.dayBeforeSubjects || [];
+      return studentData.dayBeforeSubjects || studentData.dayBeforeBreakdown || [];
     }
     return [];
   };
@@ -71,14 +71,14 @@ export default function AttendanceModal({ isOpen, onClose, studentData, type, da
                       transition={{ delay: index * 0.1 }}
                       className="glass rounded-xl p-3 sm:p-4 border border-white/20"
                     >
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h3 className="text-sm sm:text-base font-semibold text-white">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-sm sm:text-base font-semibold text-white break-words leading-tight">
                             {subject.subject}
                           </h3>
 
                         </div>
-                        <div className="text-right">
+                        <div className="text-right flex-shrink-0">
                           <div className="text-base sm:text-lg font-bold text-white">
                             {subject.attended}/{subject.held}
                           </div>
