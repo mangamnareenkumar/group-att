@@ -24,7 +24,7 @@ export function parseAttendance(html) {
     today = todayTotal ? `${todayTotal[2]}/${todayTotal[1]}` : '0/0';
     
     // Extract subjects for today
-    const subjectRegex = /(\d+)\s+([A-Za-z][A-Za-z0-9\s-]*?)\s+(\d+)\s+(\d+)\s+([\d.]+)/g;
+    const subjectRegex = /(\d+)\s+([A-Za-z][A-Za-z0-9\s&-]*?)\s+(\d+)\s+(\d+)\s+([\d.]+)/g;
     let match;
     while ((match = subjectRegex.exec(todaySection[0]))) {
       const subject = match[2].trim();
@@ -51,7 +51,7 @@ export function parseAttendance(html) {
     yesterday = yesterdayTotal ? `${yesterdayTotal[2]}/${yesterdayTotal[1]}` : '0/0';
     
     // Extract subjects for yesterday
-    const subjectRegex = /(\d+)\s+([A-Za-z][A-Za-z0-9\s-]*?)\s+(\d+)\s+(\d+)\s+([\d.]+)/g;
+    const subjectRegex = /(\d+)\s+([A-Za-z][A-Za-z0-9\s&-]*?)\s+(\d+)\s+(\d+)\s+([\d.]+)/g;
     let match;
     while ((match = subjectRegex.exec(yesterdaySection[0]))) {
       const subject = match[2].trim();
@@ -78,7 +78,7 @@ export function parseAttendance(html) {
     dayBefore = dayBeforeTotal ? `${dayBeforeTotal[2]}/${dayBeforeTotal[1]}` : '0/0';
     
     // Extract subjects for day before
-    const subjectRegex = /(\d+)\s+([A-Za-z][A-Za-z0-9\s-]*?)\s+(\d+)\s+(\d+)\s+([\d.]+)/g;
+    const subjectRegex = /(\d+)\s+([A-Za-z][A-Za-z0-9\s&-]*?)\s+(\d+)\s+(\d+)\s+([\d.]+)/g;
     let match;
     console.log('Day before section text:', dayBeforeSection[0]);
     while ((match = subjectRegex.exec(dayBeforeSection[0]))) {
@@ -106,7 +106,7 @@ export function parseAttendance(html) {
   const totalAttendanceSection = bodyText.match(/Total Attendance[\s\S]*?(?=Yesterday's Attendance|Day before|$)/);
   
   if (totalAttendanceSection) {
-    const subjectRegex = /(\d+)\s+([A-Za-z][A-Za-z0-9\s-]*?)\s+(\d+)\s+(\d+)\s+([\d.]+)/g;
+    const subjectRegex = /(\d+)\s+([A-Za-z][A-Za-z0-9\s&-]*?)\s+(\d+)\s+(\d+)\s+([\d.]+)/g;
     let match;
     
     while ((match = subjectRegex.exec(totalAttendanceSection[0]))) {
