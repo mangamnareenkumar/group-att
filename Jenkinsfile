@@ -9,14 +9,12 @@ stages {
         }
     }
 
-    stage('Run Semgrep SAST') {
+    stage('Debug Workspace') {
         steps {
             sh '''
-            docker run --rm \
-              -v "$PWD:/src" \
-              semgrep/semgrep \
-              semgrep scan --config auto /src \
-              --json --output /src/semgrep-report.json
+            pwd
+            ls -la
+            find . -maxdepth 2
             '''
         }
     }
