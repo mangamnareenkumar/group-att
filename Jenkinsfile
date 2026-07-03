@@ -11,7 +11,7 @@ pipeline {
 
         stage('Run Semgrep SAST') {
             steps {
-                sh 
+                sh '''
                     set -x
 
                     echo "===== Current Directory ====="
@@ -34,12 +34,13 @@ pipeline {
                         /src/server \
                         /src/web \
                         --verbose
+                '''
             }
         }
 
         stage('Archive Report') {
             steps {
-                echo "Skipping report archive while debugging."
+                echo 'Skipping report archive while debugging.'
             }
         }
     }
