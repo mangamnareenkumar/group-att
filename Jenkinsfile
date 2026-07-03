@@ -9,15 +9,19 @@ stages {
         }
     }
 
-    stage('Debug Workspace') {
-        steps {
-            sh '''
-            pwd
-            ls -la
-            find . -maxdepth 2
-            '''
-        }
+    stage('Run Semgrep SAST') {
+    steps {
+    sh '''
+    docker run --rm 
+    -v "$PWD:/src" 
+    semgrep/semgrep 
+    semgrep scan 
+    --config auto 
+    /src/server /src/web
+    '''
     }
+    }
+
 
     stage('Archive Report') {
         steps {
