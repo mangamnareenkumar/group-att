@@ -11,14 +11,7 @@ stages {
 
     stage('Run Semgrep SAST') {
     steps {
-    sh '''
-    docker run --rm 
-    -v "$PWD:/src" 
-    semgrep/semgrep 
-    semgrep scan 
-    --config auto 
-    /src/server /src/web
-    '''
+    sh 'docker run --rm -v "$PWD:/src" semgrep/semgrep semgrep scan --config auto /src/server /src/web --json --output /src/semgrep-report.json'
     }
     }
 
